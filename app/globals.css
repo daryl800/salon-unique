@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f7f5f2;
+  --surface: #ffffff;
+  --text: #111111;
+  --muted: #6a6a6a;
+  --accent: #d4af37;
+}
+
+.dark {
+  --bg: #0a0a0a;
+  --surface: #151515;
+  --text: #f4f3f1;
+  --muted: #bbbbbb;
+  --accent: #d4af37;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 80% 0%, rgba(212, 175, 55, 0.14), transparent 35%),
+    radial-gradient(circle at 15% 75%, rgba(212, 175, 55, 0.08), transparent 40%),
+    var(--bg);
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-7xl px-5 md:px-10;
+}
+
+.glass {
+  background: color-mix(in oklab, var(--surface) 75%, transparent);
+  backdrop-filter: blur(10px);
+}
+
+.luxury-card {
+  @apply rounded-2xl border border-white/10 shadow-luxe;
+  background: color-mix(in oklab, var(--surface) 90%, transparent);
+}
+
+.editorial-frame {
+  @apply overflow-hidden rounded-[2rem] border border-white/15;
+}
+
+.hover-light {
+  @apply relative overflow-hidden;
+}
+
+.hover-light::after {
+  content: '';
+  position: absolute;
+  top: -120%;
+  left: -140%;
+  width: 80%;
+  height: 320%;
+  transform: rotate(18deg);
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.18), transparent);
+  transition: left 700ms ease;
+  pointer-events: none;
+}
+
+.hover-light:hover::after {
+  left: 180%;
+}
+
+.fade-mask {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
